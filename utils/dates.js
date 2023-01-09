@@ -17,6 +17,16 @@ class Dates {
         return now.format('YYYY');
     }
 
+    async getCurrentMonthAndYear() {
+        const now = moment()
+        return now.format('MMMM YYYY')
+    }
+
+    async getCurrentDate() {
+        const now = moment();
+        return now.format('D');
+    }
+
 
 }
 module.exports = Dates;

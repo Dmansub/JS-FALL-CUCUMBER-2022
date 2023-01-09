@@ -7,7 +7,7 @@ class Commands {
      * 
         setValue
         getText
-        cilck
+        click
         $
         $$
         getAttribute
@@ -20,6 +20,31 @@ class Commands {
     
      */
     
+        async findAllWebElement(locator) {
+            return await $$(locator);
+        }
+
+        async clickMultipleTimes(locator, numberOfClicks) {
+            const element = await this.findWebElement(locator)
+            for (let counter = 1; counter <= numberOfClicks; counter++) {
+                  await element.click()
+               }
+        }
+
+        async isDisplayed(locator){
+     
+            return  await $(locator).isDisplayed()
+            await browser.pause(3000)
+        }
+        
+
+
+
+        async scrollIntoView(locator){
+     
+            return  await $(locator).scrollIntoView()
+        }
+
         /**
          * Generic function to find webElement
          * input: string(locator)
