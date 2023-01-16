@@ -34,9 +34,31 @@ class Commands {
         async isDisplayed(locator){
      
             return  await $(locator).isDisplayed()
-            await browser.pause(3000)
+            await browser.pause(4000)
         }
         
+
+        async selectDataInDropdown(locator, dataToSelect) {
+            await $(locator).waitForDisplayed({
+                timeout:120000,
+                timeoutMsg: 'Element is not displayed'
+            });
+            const dropdown = await $(locator);
+            dropdown.selectByVisibleText(dataToSelect);
+        }
+
+
+
+
+async selectByVisibleText(){
+    return await $().selectByVisibleText()
+    await browser.pause(1000)
+}
+
+async selectByValue(locator){
+    await $(locator).selectByValue()
+    await browser.pause(1000)
+}
 
 
 
